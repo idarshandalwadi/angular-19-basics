@@ -1,0 +1,38 @@
+<div class="container text-center">
+  <h3>Simple Reactive Form Demo.! (Using only FormControl)</h3>
+
+  <div class="row mx-auto w-50">
+    <div class="bg-light p-2 rounded-3">
+        <form #studentForm="ngForm" (ngSubmit)="submitForm(studentForm)">
+            <input type="text" [(ngModel)]="student.name" #name="ngModel" name="name" required class="form-control mt-2" placeholder="Enter FullName"/>
+            @if(name.touched && name.invalid){
+                <span class="float-start text-danger mb-2 ms-1">Name is required.</span>
+            }
+
+            <input type="number" [(ngModel)]="student.class" #class="ngModel" name="class" required class="form-control mt-2" placeholder="Enter Class"/>
+            @if(class.touched && class.invalid) {
+                <span class="float-start text-danger mb-2 ms-1">Class is required.</span>
+            }
+
+            <input type="tel" [(ngModel)]="student.phoneNo" #phoneNo="ngModel" name="phoneNo" required pattern="[0-9]+" class="form-control mt-2" placeholder="Enter Phone No" />
+            @if(phoneNo.dirty && phoneNo.invalid) {
+                <span class="float-start text-danger mb-2 ms-1">Enter valid Phone No.</span>
+            }
+
+            <input type="text" [(ngModel)]="student.address" #address="ngModel" name="address" required pattern="[a-zA-Z0-9]+" maxlength="50" class="form-control mt-2" placeholder="Enter Address "/>
+            @if(address.dirty && address.invalid) {
+                <span class="float-start text-danger mb-2 ms-1">Address can not be empty or invalid.</span>
+            }
+
+            <select [(ngModel)]="student.city" #city="ngModel" name="country" class="form-select mt-2">
+                <!-- Given [ngValue]="null" to get it selected by default, as its initial value is null .ts file. -->
+                <option [ngValue]="null" disabled>Select Country</option>
+                <option value="ahmedabad"> Ahmedabad </option>
+                <option value="viramgam"> Viramgam </option>
+                <option value="ujjain"> Ujjain </option>
+            </select>
+            <button type="submit" class="btn btn-info mt-2"> Submit Me </button>
+        </form>
+    </div>
+  </div>
+</div>

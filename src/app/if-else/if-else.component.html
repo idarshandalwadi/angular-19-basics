@@ -1,0 +1,22 @@
+<h4 class="ms-2">If-Else Demo.!</h4>
+<div class="row m-2" style="border-style: solid">
+    <div class="col-6 p-5">
+        @if (showDiv) {
+            <div class="square"></div>
+        } @else {
+            <div class="circle"></div>
+        }
+    </div>
+
+    <div class="col-6 p-1">
+    <button (click)="toggleShapes()" class="btn btn-warning m-1">{{isCircle ? 'Show Square' : 'Show Circle'}}</button>
+
+        <div class="box m-1">
+            @if (isCircle) {
+                <div class="circle"></div>
+            } @else {
+                <div class="square"></div>
+            }
+        </div>
+    </div>
+</div>

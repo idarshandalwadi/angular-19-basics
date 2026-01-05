@@ -1,0 +1,24 @@
+<div style="margin: 50px">  
+    <div style="margin-bottom: 20px">
+    <h4>Signal Int Variable : {{ signal_var() }}</h4>
+    <button (click)="incrementCount()">Increment</button>
+    <button (click)="decrementCount()" style="margin-left: 20px">
+      Decrement
+    </button>
+  </div>
+
+  <h3>Angular Signals-Demo!</h3>
+
+  <h4>Normal Variable : {{ count }}</h4>
+
+  <h4>Signal Object : {{ user().name }}</h4>
+
+  <button (click)="updateNormalVar()">Update Vals</button>
+</div>
+
+<hr/>
+
+<div style="margin: 50px;">
+    <h3> {{signal_with_type()}} </h3>
+    <button (click)="changeValueToString()">Change Singal Data Type</button>
+</div>

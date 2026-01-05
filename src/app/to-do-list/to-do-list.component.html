@@ -1,0 +1,31 @@
+<div class="m-5">
+  <h2 class="mb-3">To-Do App.!</h2>
+  <input type="text" [(ngModel)]="taskName" class="form-control w-50" />
+  <button (click)="addTask()" class="btn btn-warning mt-2">Add Todo</button>
+</div>
+<hr />
+<div style="margin-top: 10px">
+  <table class="table table-striped">
+    @for (task of taskList(); track task.id) {
+    <tr [class.completed]="task.isCompleted">
+      <td class="p-3 ps-5">
+        <input
+          type="checkbox"
+          [checked]="task.isCompleted"
+          (change)="toggleTask(task.id)"
+        />
+      </td>
+
+      <td class="p-3">
+        {{ task.title }}
+      </td>
+      
+      <td class="p-3">
+        <button (click)="removeTask(task.id)" class="btn btn-danger">Delete</button>
+      </td>
+    </tr>
+    } @empty {
+    <h3 style="padding-left: 50px;" class="pt-3">No tasks yet!</h3>
+    }
+  </table>
+</div>

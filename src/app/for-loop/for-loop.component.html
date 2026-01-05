@@ -1,0 +1,32 @@
+<h3 class="mb-3 text-center">For-Loop Demo! <span class="text-primary">(Click any name to open a user Profile)</span></h3>
+
+<!-- 
+track user.email => Angular identifies rows internally by track user.email → for DOM diffing.
+Your click event should use user.id (or id) → to know which row was clicked. -->
+<table class="table w-75 mx-auto">
+  @for (user of users; track user.email; let id=$index) {
+    @if($even){
+      <tr class="bg-info">
+        <td class="p-2">{{ $index }}</td>
+        <td class="p-2">{{ user.name  }}</td>
+        <td class="p-2">{{ user.email }}</td>
+        <td class="p-2">{{ user.city }}</td>
+        <td class="p-2">
+          <button class="btn btn-info" routerLink="/profile/{{$index}}/{{user.email}}">View Profile</button>
+          <!-- <button class="btn btn-info" (click)="goToProfile(user.name)">View Profile</button> -->
+        </td>
+      </tr>
+    } @else {
+      <tr>
+        <td class="p-2">{{ $index }}</td>
+        <td class="p-2">{{ user.name }}</td>
+        <td class="p-2">{{ user.email }}</td>
+        <td class="p-2">{{ user.city }}</td>
+        <td class="p-2">
+          <button class="btn btn-info" routerLink="/profile/{{$index}}/{{user.email}}">View Profile</button>
+          <!-- <button class="btn btn-info" (click)="goToProfile(user.name)">View Profile</button> -->
+        </td>
+      </tr>
+    }
+  }
+</table>

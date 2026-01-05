@@ -1,0 +1,22 @@
+<h4 class="text-center bg-warning p-2 mb-3">Passing data from Parent Component to child component, when both are in a same DOM tree.</h4>
+
+<div class="text-center d-flex flex-column align-items-center mt-2" style="margin-bottom: 50px;">
+    <h3>Parent Component.!</h3>
+
+    <input type="text" [(ngModel)]="radius" placeholder="Enter Radius"  class="form-control w-25"/>
+    
+    <h5 class="mt-3"> Fetched from the child on button click : {{receivedDiameter()}}</h5>
+
+</div>
+
+<hr/>
+
+<!-- For signal variable you need to add() while passing it to parent. -->
+<!-- "comingFromParent" declared in a child component which will hold a value of "passMetoChild". -->
+<!-- "circleRadius" is defined in a child, and radius() is a signal from parent. -->
+<!-- (calculatedDiameter) is an event emitted by child, for the parent function "onDiameterReceived()". -->
+<app-child 
+    [comingFromParent] = "passMetoChild"
+    [circleRadius] = "radius()"
+    (calculatedDiameter)="onDiameterReceived($event)"> <!-- A custom event (calculatedDiameter) emmitted by child -->
+</app-child>

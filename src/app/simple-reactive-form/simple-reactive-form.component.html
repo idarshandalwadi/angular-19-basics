@@ -1,0 +1,19 @@
+<div class="container text-center">
+  <h3>Simple Reactive Form Demo.! (Using only FormControl)</h3>
+
+  <div class="row mx-auto w-50">
+    <div class="bg-light p-2 rounded-3">
+        <form method="post" action="/">
+            <input type="text" [formControl]="fullName" class="form-control mt-2" placeholder="Enter FullName"/>
+            <input type="password" [formControl]="password" class="form-control mt-2" placeholder="Enter Password"/>
+            <select [formControl]="country" id="country" class="form-select mt-2">
+                <option [ngValue]="null" disabled>Select Country</option>
+                <option value="INDIA"> INDIA </option>
+                <option value="UK"> UK </option>
+                <option value="US"> US </option>
+            </select>
+            <button type="button" (click)="submitForm()" class="btn btn-info mt-2"> Submit Me </button>
+        </form>
+    </div>
+  </div>
+</div>

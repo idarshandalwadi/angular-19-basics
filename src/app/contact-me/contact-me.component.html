@@ -1,0 +1,52 @@
+<div class="container text-center">
+    <h3>Reactive Form (With FormGroup) Demo.!</h3>
+
+    <div class="row mx-auto">
+        <div class="bg-warning p-2 col-6 rounded-3">
+
+            <form [formGroup]="contactForm" (ngSubmit)="onFormSubmit()"]>
+
+                <input formControlName="fullName" class="form-control mt-2" type="text" name="fullName" placeholder="Enter Name"/>
+                @if(contactForm.controls.fullName.touched && contactForm.controls.fullName.invalid) {
+                    <strong class="text-danger float-start">Name is required.</strong>
+                }
+
+                <input formControlName="email" class="form-control mt-2" type="email" name="email" placeholder="Enter Email"/>
+                @if(contactForm.controls.email.touched && contactForm.controls.email.invalid) {
+                    <strong class="text-danger float-start">Please enter valid Email.</strong>
+                }
+
+                <textarea formControlName="comment" class="form-control mt-2" type="text" name="comment" placeholder="Enter comment"></textarea>
+
+                <button [disabled]="contactForm.invalid" class="btn btn-light mt-2 px-5"> Submit </button>
+            </form>
+        </div>
+
+        <div class="col-6 bg-light rounded-3">
+            <img src="/images/sample.jpg" class="rounded-3" width="500" height="220">
+        </div>
+    </div>
+</div>
+
+<!-- Demo of Form Array to take multiple values (add/remove UI elements based on click)-->
+<div class="container mt-5 w-50 mx-auto">
+    <h3>Provide Username and Skills.!</h3>
+    <form [formGroup]="demoFormArray" (ngSubmit)="submitFormArray()" class="d-flex flex-column">
+    
+        <input formControlName="userName" class="form-control" placeholder="Enter User Name"/>
+        
+        <div formArrayName="skills" class="float-start">
+            <h6 class="mt-2"> Your Skills: </h6>
+            <button (click)="addSkill()" class="btn btn-primary"> + Add Skill</button>
+
+            @for(skill of skills.controls; track $index) {
+                <div class="skill-row d-flex gap-2 mt-2">
+                    <input type="text" [formControlName]="$index" placeholder="Enter a skill" class="form-control">
+                    <button (click)="removeSkill($index)" class="btn btn-danger">Remove</button>
+                </div>
+            }
+        </div>
+
+        <button (click)="submitFormArray()" class="btn btn-primary mt-3">Submit FormArray</button>
+    </form>
+</div>

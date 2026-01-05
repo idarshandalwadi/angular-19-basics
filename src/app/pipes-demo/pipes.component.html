@@ -1,0 +1,51 @@
+<h3 class="text-center">PIPEs Demo.!</h3>
+<div class="container mx-auto d-flex flex-row gap-4">
+
+    <div class="d-flex flex-column gap-2 col-6">
+        <h4> Inbuilt PIPEs</h4>
+        <div class="bg-warning p-3 rounded-3">
+            With 'uppercase' pipe :: <b> {{title | uppercase}} </b>
+        </div>
+
+        <div class="bg-warning p-3 rounded-3">
+            With 'titlecase' pipe :: <b> {{titleCaseVar | titlecase}} </b>
+        </div>
+
+        <div class="bg-warning p-3 rounded-3">
+            Convert Date using 'date' pipe :: <b> {{todaysDate | date}} </b> <br />
+            Date pipe with 'fullDate' parameter :: <b> {{todaysDate| date:'fullDate' }} </b> <br />
+            Date pipe to get only Time: (hh:mm:ss) :: <b> {{todaysDate| date:'hh:mm:ss' }} </b>
+        </div>
+
+        <div class="bg-warning p-3 rounded-3">
+            Amount with 'currency' pipe (bydefault its $) :: <b> {{amount | currency}} </b> <br />
+            'currency' pipe with 'INR' parameter :: <b> {{amount | currency: 'INR' }} </b> <br />
+            'currency' pipe with 'EUR' parameter :: <b> {{amount | currency:'EUR' }} </b>
+        </div>
+        
+        <div class="bg-warning p-3 rounded-3">
+            Combined 'date(fullDate)' and 'uppercase'pipes :: <b> {{todaysDate | date:'fullDate' | uppercase}} </b> <br />
+        </div>
+    </div>
+
+    <div class="d-flex flex-column gap-2 col-6">
+        <h4> Custom PIPEs</h4>
+        <div class="bg-warning p-3 rounded-3">
+            Product code (custom) pipe - convert productId into ProductCode :: 
+            <b> {{productId | productcode}} </b>
+        </div>
+        <div class="bg-warning p-3 rounded-3">
+            Given value's Square (+ 10) custom pipe :: 
+            <b> {{4 | square: 10}} </b>
+        </div>
+        <div class="bg-warning p-3 rounded-3">
+            Currency converter pipe :: 
+            <b> {{4 | currencyConverter}} </b>
+        </div>
+        <div class="bg-warning p-3 rounded-3">
+            Currency converted to INR using custom (Currency Converter) pipe :: 
+            <b> {{4 | currencyConverter: 'INR'}} </b>
+        </div>
+    </div>
+
+</div>

@@ -1,0 +1,21 @@
+<h3>Switch Statement Demo!</h3>
+
+<div class="d-flex flex-row" style="gap: 10px;">
+<button (click)="changeShape('square')" class="btn btn-primary">Square</button>
+<button (click)="changeShape('circle')" class="btn btn-warning">Circle</button>
+<button (click)="changeShape('rectangle')" class="btn btn-secondary">Rectangle</button>
+</div>
+
+<div class="box">
+@switch (shapeName) {
+    @case ('square') {
+        <div class="square"></div>
+    }
+    @case ('circle') {
+        <div class="circle"></div>
+    }
+    @case ('rectangle') {
+        <div class="rectangle"></div>
+    }
+}
+</div>

@@ -1,0 +1,10 @@
+
+<div class="m-5">
+    <h4 class="mb-2">Enter New Message and It will reflect all the places wherever the residing signal is used.!</h4>
+
+    <input type="text" #newMessage class="form-control w-25">
+
+    <button (click)="sharedService.updateMessage(newMessage.value)" class="btn btn-primary mt-2">Update Message</button>
+    
+    <h5 class="mt-2">Updated Message : {{sharedService.readonlyMsg()}}</h5>
+</div>
